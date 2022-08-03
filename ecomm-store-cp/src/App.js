@@ -1,22 +1,20 @@
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./routes/home/home.component";
+import Navigation from "./routes/navigation/navigation.component";
+
+const Shop = () => {
+  return <h1>I am the shop page</h1>;
+};
+
 const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "Hats",
-    },
-  ];
   return (
-    <div className="categories-container">
-      {categories.map(({ title }) => (
-        <div className="category-container">
-          {/* <img /> */}
-          <div className="category-body-container">
-            <h2>{title}</h2>
-            <p>Shop Now</p>
-          </div>
-        </div>
-      ))}
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+      </Route>
+    </Routes>
   );
 };
 
